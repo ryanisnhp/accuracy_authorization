@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         coordinatesLabel.isHidden = true
         requestLocationButton.setTitle("Request Location", for: .normal)
+        requestLocationButton.setTitleColor(.gray, for: .disabled)
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -28,6 +29,7 @@ class ViewController: UIViewController {
 
     
     @IBAction func onRequestLocation(_ sender: UIButton) {
+        requestLocationButton.isEnabled = false
         locationManager.requestLocation()
     }
 }
@@ -62,6 +64,7 @@ extension ViewController: CLLocationManagerDelegate {
             break
         case .reducedAccuracy:
             accuracyAuthorizationLabel.text = ".reducedAccuracy"
+            manager.requestTemporaryFullAccuracyAuthorization(withPurposeKey: "ForDelivery")
             break
         default:
             break
@@ -73,6 +76,7 @@ extension ViewController: CLLocationManagerDelegate {
         let coorText = "(\(location.coordinate.latitude), \(location.coordinate.longitude))"
         coordinatesLabel.text = coorText
         coordinatesLabel.isHidden = false
+        requestLocationButton.isEnabled = true
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
