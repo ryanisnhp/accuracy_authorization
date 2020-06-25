@@ -71,5 +71,7 @@
         <key>ForDelivery</key>
         <string>Help your driver delivery items on time</string>
     </dict>
+    <key>NSLocationDefaultAccuracyReduced</key>
+    <false/>
 </dict>
 </plist>
