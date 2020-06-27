@@ -1,5 +1,5 @@
 # Accuracy Authorization
-New accuracy authorization in iOS 14
+New accuracy authorization for location permission for iOS 14
 
 # **Screenshot**
 ![screenshot](https://github.com/ryanisnhp/accuracy_authorization/blob/main/images/image_1.png?raw=true)
